@@ -5,11 +5,18 @@
   </head>
   <body>
     <header>
-      <% include ../Parts/Header.ejs %>
+      <% include ../Parts/Header %>
     </header>
-    <main>
+    <main class="container">
       <h1><%= title %></h1>
       <p>Welcome to <%= title %></p>
+      <div class="jumbotron">
+        <form method="post">
+          <h2>Login</h2>
+          <input type="text" name="Username" value="" >
+          <input type="password" name="Password" value="">
+        </form>
+      </div>
     </main>
     <footer>
       <% include ../Parts/Footer.ejs %>
