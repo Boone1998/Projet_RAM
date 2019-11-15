@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../Parts/Head.ejs %>
+  </head>
+  <body>
+    <header>
+      <% include ../Parts/HeaderAdmin %>
+    </header>
+    <main class="container">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <div class="jumbotron">
+        <form method="post">
+          <h2>Bonjours <%= username %>!</h2>
+
+        </form>
+      </div>
+    </main>
+    <footer>
+      <% include ../Parts/Footer.ejs %>
+    </footer>
+  </body>
+</html>
