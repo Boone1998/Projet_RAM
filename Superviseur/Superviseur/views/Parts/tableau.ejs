@@ -1,0 +1,16 @@
+<div>
+  <table class="table">
+    <tr>
+      <% fields.forEach(function(item, index) { %>
+        <th scope="col"><%= item.name %></th>
+      <% }) %>
+    </tr>
+    <% data.forEach(function(item, index) { %>
+      <tr>
+        <% fields.forEach(function(row, info) { %>
+          <td scope="rows"><%= item[row.name] %></td>
+        <% }) %>
+      </tr>
+    <% }) %>
+  </table>
+</div>
