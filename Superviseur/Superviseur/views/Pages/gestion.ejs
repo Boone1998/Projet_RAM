@@ -12,9 +12,17 @@
     <main class="container">
       <h1>Gestionnaire d'utilisateurs</h1>
       <div class="jumbotron">
-        <%- include ../Parts/tableau.ejs %>
-
-
+        <%- include("../Parts/tableau", {modifiable: true, fields: fields, data: data}) %>
+        <form method="post">
+          <h2>Ajouter un utilisateur</h2>
+          <h4>Username: </h4><input type="text" name="newUser" value=""></br>
+          <h4>Password: </h4><input type="text" name="newPass" value=""></br>
+          <h4>Niveau de droit: </h4><input type="number" name="Droit" value=""></br>
+          <p>Ajouter un utilisateur</p><input type="radio" name="modifUser" value="Ajout">
+          <p>Supprimer un utilisateur</p><input type="radio" name="modifUser" value="Delete">
+          <p>Modifier un utilisateur</p><input type="radio" name="modifUser" value="Modif"></br>
+          <input type="submit" value="Submit">
+        </form>
       </div>
     </main>
     <footer>
