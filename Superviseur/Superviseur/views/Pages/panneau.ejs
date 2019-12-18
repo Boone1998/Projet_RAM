@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../../routes/index.js"></script>
+    <%- include ../Parts/Head.ejs %>
+    <script type="text/javascript" src="routes/index.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <%- include ../Parts/header %>
+    </header>
+    <main class="container">
+      <div class="jumbotron">
+          <h2>Panneau RAM</h2>
+          <% if(user == 'admin'){ %>
+              <select name="Mode" id="myselect">
+                <option id="Mauto" value="auto">Mode Auto<option>
+                <option id="Mman" value="man" selected = "selected">Mode Manuel<option>
+              <select>
+              <form method="post">
+                <p>Pompe</p><input id="Pompe" type="checkbox" name="Pompe">
+                <p>Eau froide</p><input id="eauFroide" type="checkbox" name="eauFroide">
+                <p>Eau chaude</p><input id="eauChaude" type="checkbox" name="eauChaude">
+                <p>Valve grand bassin</p><input id="valveGB" type="number" name="ValveGB">
+                <p>Valve petit bassin</p><input id="valvePB" type="number" name="ValvePB">
+                <p>Valve eau chaude</p><input id="valveEC" type="number" name="ValveEC">
+                <p>Valve eau froide</p><input id="valveEF" type="number" name="ValveEF">
+                <p>Consigne grand bassin</p><input id="consNivGB" type="number" name="ConsNivGB">
+                <p>Consigne petit bassin</p><input id="consNivPB" type="number" name="ConsNivPB">
+                <p>Consigne température petit bassin</p><input id="consTmpPB" type="number" name="ConsTmpPB">
+                <input type="submit" value="submit">
+              <form>
+
+          <% } %>
+        </br>
+          Niveau GB<div id="gaugeNivGB" style="width:200px; height:160px"></div>
+          Niveau PB<div id="gaugeNivPB" style="width:200px; height:160px"></div>
+          Température PB<div id="gaugeTempPB" style="width:200px; height:160px"></div>
+      </div>
+      <div class="jumbotron">
+        <h2>Power Meter</h2>
+      </div>
+      <div class="jumbotron">
+        <h2>Valves de purges</h2>
+      </div>
+    </main>
+    <footer>
+      <% include ../Parts/Footer.ejs %>
+    </footer>
+    <script>
+      var g = new JustGage({
+        id: "gaugeNivGB",
+        value: 67,
+        min: 0,
+        max: 100,
+        title: "NivGB"
+      });
+    </script>
+    <script>
+      var h = new JustGage({
+        id: "gaugeNivPB",
+        value: 67,
+        min: 0,
+        max: 100,
+        title: "NivPB"
+      });
+    </script>
+    <script>
+      var i = new JustGage({
+        id: "gaugeTempPB",
+        value: 67,
+        min: 0,
+        max: 100,
+        title: "TempPB"
+      });
+    </script>
+    <!--<script>
+      $select = $('#myselect');
+      $('#consNivGB').hide();
+      $('#consNivPB').hide();
+      $('#consTmpPB').hide();
+
+
+      $select.change(function(){
+        if($(this).val() == "Mauto"){
+          if($('#consNivGB').is(":hidden")){
+            $('#consNivGB').show();
+          }
+          if($('#consNivPB').is(":hidden")){
+            $('#consNivPB').show();
+          }
+          if($('#consTmpPB').is(":hidden")){
+            $('#consTmpPB').show();
+          }
+          $('#Pompe').hide();
+          $('#eauFroide').hide();
+          $('#eauChaude').hide();
+          $('#valveGB').hide();
+          $('#valvePB').hide();
+          $('#valveEC').hide();
+          $('#valveEF').hide();
+        }
+        if($(this).val() == "Mman"){
+          if($('#Pompe').is(":hidden")){
+            $('#Pompe').show();
+          }
+          if($('#eauFroide').is(":hidden")){
+            $('#eauFroide').show();
+          }
+          if($('#eauChaude').is(":hidden")){
+            $('#eauChaude').show();
+          }
+          if($('#valveGB').is(":hidden")){
+            $('#valveGB').show();
+          }
+          if($('#valvePB').is(":hidden")){
+            $('#valvePB').show();
+          }
+          if($('#valveEC').is(":hidden")){
+            $('#valveEC').show();
+          }
+          if($('#valveEF').is(":hidden")){
+            $('#valveEF').show();
+          }
+          $('#consNivGB').hide();
+          $('#consNivPB').hide();
+          $('#consTmpPB').hide();
+        }
+      });
+    </script>-->
+  </body>
+</html>

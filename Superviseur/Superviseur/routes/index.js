@@ -48,4 +48,8 @@ router.post('/', function(req, res, next){
   });
 });
 
+router.get('/panneau', function(req, res, next){
+  res.render('Pages/panneau', {user: username});
+});
+
 module.exports = router;
